@@ -23,9 +23,12 @@ const kmString = prompt(`Kilometri da percorrere`);
 const etaString = prompt(`Inserisci la tua età`);
 
 const kmInt = parseInt(kmString).toFixed(2);
-const etaInt = parseInt(etaString).toFixed(2);
+const etaInt = parseInt(etaString).toFixed(0);
 console.log(kmInt);
 console.log(etaInt);
+//iserire età e km nella tabella
+document.getElementById("eta").innerHTML = `${etaInt}`;
+document.getElementById("km").innerHTML = `${kmInt}`;
 
 let costo = 0;
 
@@ -36,12 +39,17 @@ console.log(`Il costo del biglietto in base ai km senza verificare gli sconti è
 
 if (etaInt < 18) {
     costo -= (costo * scontoMinori);
-    console.log(`Effettuato lo sconto per minori di 18 anni`)
+    console.log(`Effettuato lo sconto per minori di 18 anni`);
+    document.getElementById("sconto").innerHTML = `20% - Under 18`;
+
 }
 if (etaInt > 65) {
     costo -= (costo * scontoOver);
-    console.log(`Effettuato lo sconto per over 65 anni`)
+    console.log(`Effettuato lo sconto per over 65 anni`);
+    document.getElementById("sconto").innerHTML = `40% - Over 65`;
+
 }
-costo = costo.toFixed(2);
+//costo = costo.toFixed(2);
 //Risultato
-console.log(`Il costo totale del biglietto è di € ${costo}`);
+console.log(`Il costo totale del biglietto è di € ${costo.toFixed(2)}`);
+    document.getElementById("costo").innerHTML = `${costo.toFixed(2)}`;
