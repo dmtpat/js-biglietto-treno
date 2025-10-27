@@ -34,7 +34,7 @@ let costo = 0;
 
 //------------Svolgimento-------------
 //calcolo costo del biglietto sui km
-costo = (kmInt * prezzoKm).toFixed(2);
+costo = kmInt * prezzoKm;
 console.log(`Il costo del biglietto in base ai km senza verificare gli sconti è di € ${costo}`);
 
 if (etaInt < 18) {
