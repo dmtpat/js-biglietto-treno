@@ -12,3 +12,34 @@
 ***Bonus: scrivete il risultato in un elemento in pagina (es. un tag <div>)***
 *
 */
+
+//------Dichiarazione variabili--------
+
+const prezzoKm = 0.21;
+const scontoOver = 0.4;
+const scontoMinori = 0.2;
+
+const kmString = prompt(`Kilometri da percorrere`);
+const etaString = prompt(`Inserisci la tua età`);
+
+const kmInt = parseInt(kmString);
+const etaInt = parseInt(etaString);
+
+let costo = 0;
+
+//------------Svolgimento-------------
+//calcolo costo del biglietto sui km
+costo = kmInt * prezzoKm;
+console.log(`Il costo del biglietto in base ai km senza verificare gli sconti è di € ${costo}`);
+
+if (etaInt < 18) {
+    costo -= (costo * scontoMinori);
+    console.log(`Effettuato lo sconto per minori di 18 anni`)
+}
+if (etaInt > 65) {
+    costo -= (costo * scontoOver);
+    console.log(`Effettuato lo sconto per over 65 anni`)
+}
+
+//Risultato
+console.log(`Il costo totale del biglietto è di € ${costo}`);
